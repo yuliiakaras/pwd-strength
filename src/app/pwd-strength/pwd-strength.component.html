@@ -1,0 +1,26 @@
+<div class="wrapper">
+    <div class="pwd-strength__title">
+        <h2>Check your password strength</h2>
+    </div>
+    <div class="pwd-strength__content">
+        <div class="pwd-strength__field">
+            <mat-form-field>
+                <input matInput type="password" placeholder="Enter your password" [formControl]="passwordControl">
+            </mat-form-field>    
+        </div>
+        <div class="pwd-strength__bar">
+            <div
+            class="strength-bar easy"
+            >
+            </div>
+            <div
+            class="strength-bar medium"
+            >
+            </div>
+            <div
+            class="strength-bar strong"
+            >
+            </div>
+      </div>  
+    </div>
+</div>
