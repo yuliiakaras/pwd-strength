@@ -3,24 +3,23 @@
         <h2>Check your password strength</h2>
     </div>
     <div class="pwd-strength__content">
-        <div class="pwd-strength__field">
-            <mat-form-field>
-                <input matInput type="password" placeholder="Enter your password" [formControl]="passwordControl">
-            </mat-form-field>    
-        </div>
-        <div class="pwd-strength__bar">
-            <div
-            class="strength-bar easy"
-            >
-            </div>
-            <div
-            class="strength-bar medium"
-            >
-            </div>
-            <div
-            class="strength-bar strong"
-            >
-            </div>
-      </div>  
+      <div class="pwd-strength__field">
+        <mat-form-field>
+          <input matInput type="password" placeholder="Enter your password" [formControl]="passwordControl">
+        </mat-form-field>    
+      </div>
+      <div class="pwd-strength__bar">
+        <div
+          *ngFor="let bar of strengthBars; let i = index"
+          class="pwd-strength__item"
+          [ngClass]="{
+            'pwd-strength__item--empty': strength === 'empty',
+            'pwd-strength__item--tooShort': strength === 'tooShort',
+            'pwd-strength__item--easy': i === 0 && strength === 'easy',
+            'pwd-strength__item--medium': i < 2 && strength === 'medium',
+            'pwd-strength__item--strong': i < 3 && strength === 'strong'
+          }"
+        ></div>
+      </div>
     </div>
 </div>
